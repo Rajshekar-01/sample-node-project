@@ -1,14 +1,7 @@
-version: '3.7'
-
+environment:
+  - PORT=3000
 services:
-  environment:
-    container_name: environment
-    build:
-      context: .
-      dockerfile: dockerfile
-    ports:
-      - 3005:3005
-    stdin_open: true
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    command: node app.js
+  web:
+    domain: ${HOST}
+    build: .
+    port: 3000
